@@ -11,7 +11,7 @@ const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle-thin";
 const LINE_THROUGH = "lineThrough";
 
-// Variables 
+// Variables
 let LIST, id;
 
 // get item from localstorage
@@ -20,15 +20,15 @@ let data = localStorage.getItem("TODO");
 // check if data is not empty
 if(data){
     LIST = JSON.parse(data);
-    id = LIST.length; // set the id to the last one in the list
-    loadList(LIST); // load the list to the user interface
+    id = LIST.length; // set the Id to the last one in the list
+    loadList(LIST); // load the list to the ui
 }else{
-    // if data isn't empty
+    // If the data isn't empty
     LIST = [];
     id = 0;
 }
 
-// load items to the user's interface
+// Load items to the user's interface
 function loadList(array){
     array.forEach(function(item){
         addToDo(item.name, item.id, item.done, item.trash);
@@ -84,7 +84,7 @@ document.addEventListener("keyup",function(even){
                 trash : false
             });
 
-            // add item to localstorage ( this code must be added where the LIST array is updated)
+            // add item to localstorage (this code must be added where the LIST array is updated)
             localStorage.setItem("TODO", JSON.stringify(LIST));
 
             id++;
@@ -122,6 +122,6 @@ list.addEventListener("click", function(event){
         removeToDo(element);
     }
 
-    // add item to localstorage ( this code must be added where the LIST array is updated)
+    // add item to localstorage (this code must be added where the LIST array is updated)
     localStorage.setItem("TODO", JSON.stringify(LIST));
 });
